@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+
+<body ng-app="app">
+    <div ng-controller="DeckController">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <select data-ng-model="card1" ng-options="d for d in deck | excludeSelected:card2" ng-change="updateScore()" class="btn btn-default dropdown-toggle"></select>
+                <select data-ng-model="card2" ng-options="d for d in deck | excludeSelected:card1" ng-change="updateScore()" class="btn btn-default dropdown-toggle"></select>
+            <label>Blackjack score: {{totalScore}}</label>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="controllers/deckController.js"></script>
+</body>
+
+</html>
